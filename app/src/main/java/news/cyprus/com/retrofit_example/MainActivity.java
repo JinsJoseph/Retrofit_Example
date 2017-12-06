@@ -1,16 +1,17 @@
 package news.cyprus.com.retrofit_example;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 
 import news.cyprus.com.retrofit_example.Service.RestBuilderPro;
 import news.cyprus.com.retrofit_example.Service.SplashClassItems;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,14 +32,20 @@ public class MainActivity extends AppCompatActivity {
                     Log.e("succ", "success");
                 } else {
                     Log.e("succ", response.code() + "");
+                    Log.e("error body", response.errorBody() + "");
+                    ResponseBody responseBody=response.errorBody();
+                    Gson gson=new GsonBuilder().create();
+                    SplashClassItems obj=new SplashClassItems();
+                    try {
+                    obj=gson.fromJson(responseBody.string(),SplashClassItems.class);
 
+                       // String res=responseBody.string();
+                        Log.e("response body", obj.getMessage());
 
-                    Gson gson = new GsonBuilder().create();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                    SplashClassItems1 items = new SplashClassItems1();
-                    items = gson.fromJson(response.errorBody().toString(), SplashClassItems1.class);
-
-                    Log.e("succ", response.errorBody().toString());
 
                 }
             }
