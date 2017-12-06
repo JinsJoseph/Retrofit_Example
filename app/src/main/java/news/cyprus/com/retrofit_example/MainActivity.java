@@ -1,5 +1,6 @@
 package news.cyprus.com.retrofit_example;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hallo_man);
-        //binding= DataBindingUtil.setContentView(MainActivity.this,R.layout.activity_main);
+       // setContentView(R.layout.hallo_man);
+     binding= DataBindingUtil.setContentView(MainActivity.this,R.layout.hallo_man);
 
         RestBuilderPro.getService().authenticate("jins").enqueue(new Callback<SplashClassItems>() {
             @Override
@@ -32,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.e("succ", "success");
                 } else {
-                    Log.e("succ", response.code() + "");
-                    Log.e("error body", response.errorBody() + "");
+
                     ResponseBody responseBody=response.errorBody();
                     Gson gson=new GsonBuilder().create();
                     SplashClassItems obj=new SplashClassItems();
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                        // String res=responseBody.string();
                         Log.e("response body", obj.getMessage());
-                      //  binding.subButtn.setText("submit");
+                       binding.subButton.setText(obj.getMessage());
 
                     } catch (IOException e) {
                         e.printStackTrace();
