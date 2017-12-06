@@ -11,6 +11,9 @@ public class SplashClassItems {
     @SerializedName("status")
             @Expose
     int status;
+    @SerializedName("message")
+    @Expose
+    String message;
 
     public int getStatus() {
         return status;
@@ -27,7 +30,5 @@ public class SplashClassItems {
     public void setMessage(String message) {
         this.message = message;
     }
-    @SerializedName("message")
-    @Expose
-    String message;
+
 }

@@ -11,18 +11,19 @@ import java.io.IOException;
 
 import news.cyprus.com.retrofit_example.Service.RestBuilderPro;
 import news.cyprus.com.retrofit_example.Service.SplashClassItems;
+import news.cyprus.com.retrofit_example.databinding.HalloManBinding;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
+    HalloManBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.hallo_man);
+        //binding= DataBindingUtil.setContentView(MainActivity.this,R.layout.activity_main);
 
         RestBuilderPro.getService().authenticate("jins").enqueue(new Callback<SplashClassItems>() {
             @Override
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                        // String res=responseBody.string();
                         Log.e("response body", obj.getMessage());
+                      //  binding.subButtn.setText("submit");
 
                     } catch (IOException e) {
                         e.printStackTrace();
