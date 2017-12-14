@@ -1,4 +1,4 @@
-package news.cyprus.com.retrofit_example.Service;
+package news.cyprus.com.retrofit_example.Helper;
 
 import android.content.ContentUris;
 import android.content.Context;

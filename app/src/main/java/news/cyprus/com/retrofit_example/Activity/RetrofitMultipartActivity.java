@@ -17,7 +17,7 @@ import java.util.HashMap;
 import news.cyprus.com.retrofit_example.Model.Registerd_User_Response;
 import news.cyprus.com.retrofit_example.R;
 import news.cyprus.com.retrofit_example.Service.RestBuilderPro;
-import news.cyprus.com.retrofit_example.Service.SelectedFilePath;
+import news.cyprus.com.retrofit_example.Helper.SelectedFilePath;
 import news.cyprus.com.retrofit_example.databinding.HalloManBinding;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
