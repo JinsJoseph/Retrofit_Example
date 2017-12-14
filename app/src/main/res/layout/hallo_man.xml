@@ -8,7 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:text="send"
             android:id="@+id/sub_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="pick"
+            android:id="@+id/sub_button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

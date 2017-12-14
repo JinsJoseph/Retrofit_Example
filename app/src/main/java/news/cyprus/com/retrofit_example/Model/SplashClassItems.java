@@ -1,4 +1,4 @@
-package news.cyprus.com.retrofit_example.Service;
+package news.cyprus.com.retrofit_example.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
